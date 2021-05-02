@@ -8,4 +8,13 @@
     width: 150px;
     height: 40px;
   }
+  @media (max-width: 600px) {
+    margin-left: 10px;
+    margin-top: 60px;
+
+    input {
+      width: 100px;
+      height: 40px;
+    }
+  }
 }

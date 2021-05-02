@@ -3,4 +3,8 @@
   z-index: 1;
   margin-left: 350px;
   margin-top: 10px;
+  @media (max-width: 600px) {
+    margin-left: 120px;
+    margin-top: 60px;
+  }
 }

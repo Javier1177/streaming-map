@@ -1,9 +1,12 @@
+import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
 import React from 'react';
-import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
-import Spinner from '../Spinner/Spinner';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectCoordinateList } from '../../redux/coordinates/coordinates.selectors';
 import darkMode from '../../resources/mapDarkMode';
+import Spinner from '../Spinner/Spinner';
 
-const MapContainer = ({ google }) => (
+const UnconnectedMapContainer = ({ google, coordinateList }) => (
   <div className="mapContainer">
     <Map
       google={google}
@@ -11,10 +14,18 @@ const MapContainer = ({ google }) => (
       initialCenter={{ lat: 47.444, lng: -122.176 }}
       styles={true ? darkMode : ''}
     >
-      <Marker position={{ lat: 48.0, lng: -122.0 }} />
+      {coordinateList.map((coordinate) => (
+        <Marker position={coordinate} />
+      ))}
     </Map>
   </div>
 );
+
+const mapStateToProps = createStructuredSelector({
+  coordinateList: selectCoordinateList,
+});
+
+const MapContainer = connect(mapStateToProps)(UnconnectedMapContainer);
 
 export default GoogleApiWrapper({
   apiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,

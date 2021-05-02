@@ -1,7 +1,7 @@
 import CoordinatesActionTypes from './coordinates.types';
 
 const INITIAL_STATE = {
-  coordinateList: [],
+  coordinateList: [{ lat: 47.444, lng: -122.176 }],
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {

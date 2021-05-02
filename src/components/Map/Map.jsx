@@ -15,7 +15,7 @@ const UnconnectedMapContainer = ({ google, coordinateList }) => (
       styles={true ? darkMode : ''}
     >
       {coordinateList.map((coordinate) => (
-        <Marker position={coordinate} />
+        <Marker position={coordinate} key={coordinate.lat + coordinate.lng} />
       ))}
     </Map>
   </div>

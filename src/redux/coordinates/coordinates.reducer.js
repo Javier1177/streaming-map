@@ -1,6 +1,7 @@
 import CoordinatesActionTypes from './coordinates.types';
 
 const INITIAL_STATE = {
+  // Coordinate added by default to see Marker
   coordinateList: [{ lat: 47.444, lng: -122.176 }],
 };
 

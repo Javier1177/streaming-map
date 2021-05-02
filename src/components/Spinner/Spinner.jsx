@@ -3,7 +3,7 @@ import './spinner.scss';
 
 const LoadingContainer = () => (
   <div className="loadingContainer">
-    <div class="loader loader1">
+    <div className="loader loader1">
       <div>
         <div>
           <div>

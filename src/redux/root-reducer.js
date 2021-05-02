@@ -3,15 +3,17 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import coordinatesReducer from './coordinates/coordinates.reducer';
+import mapStyleReducer from './mapStyle/mapStyle.reducer';
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: [],
+  whitelist: ['mapStyle', 'coordinates'],
 };
 
 const rootReducer = combineReducers({
   coordinates: coordinatesReducer,
+  mapStyle: mapStyleReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);
